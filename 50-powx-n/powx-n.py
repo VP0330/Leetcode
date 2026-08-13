@@ -6,7 +6,7 @@ class Solution:
 
         result = 1
 
-        while n > 0:
+        while n:
             if n % 2 == 1:
                 result *= x
 
