@@ -9,10 +9,9 @@ class Solution:
         def backtrack(i,curr):
             if len(curr)==len(digits):
                 res.append(curr)
-                return
+                return 
             for c in phone_map[digits[i]]:
                 backtrack(i+1,curr+c)
-
         if digits:
             backtrack(0,"")
         return res
