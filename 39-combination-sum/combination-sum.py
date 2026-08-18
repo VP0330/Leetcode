@@ -5,6 +5,7 @@ class Solution:
             if total==target:
                 res.append(curr.copy())
                 return res
+            
             if i>=len(candidates) or total>target:
                 return
             
@@ -12,6 +13,5 @@ class Solution:
             dfs(i,curr,total+candidates[i])
             curr.pop()
             dfs(i+1,curr,total)
-
         dfs(0,[],0)
         return res
