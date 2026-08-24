@@ -5,7 +5,7 @@ class Solution:
         profit=0
         while r<len(prices):
             if prices[l]<prices[r]:
-                profit=max(prices[r]-prices[l],profit)
+                profit=max(profit,prices[r]-prices[l])
             else:
                 l=r
             r+=1
