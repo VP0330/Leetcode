@@ -1,5 +1,5 @@
 class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
+    def removeDuplicates(self, nums: list[int]) -> int:
         slow=2
         for fast in range(2,len(nums)):
             if nums[fast]!=nums[slow-2]:
