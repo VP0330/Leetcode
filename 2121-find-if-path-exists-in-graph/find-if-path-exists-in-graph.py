@@ -1,7 +1,7 @@
 from collections import deque
 class Solution:
     def validPath(self, n: int, edges: list[list[int]], source: int, destination: int) -> bool:
-        if source==destination:
+        if source == destination:
             return True
         
         graph=defaultdict(list)
@@ -16,7 +16,7 @@ class Solution:
 
         while q:
             node=q.popleft()
-            if node==destination:
+            if node == destination:
                 return True
             for neig in graph[node]:
                 if neig not in seen:
