@@ -8,17 +8,18 @@ class Solution:
         for u,v in edges:
             graph[u].append(v)
             graph[v].append(u)
+
         seen=set()
         seen.add(source)
         q=deque()
         q.append(source)
+
         while q:
             node=q.popleft()
             if node==destination:
                 return True
-            
-            for neigh in graph[node]:
-                if neigh not in seen:
-                    seen.add(neigh)
-                    q.append(neigh)
+            for neig in graph[node]:
+                if neig not in seen:
+                    seen.add(neig)
+                    q.append(neig)
         return False
