@@ -13,9 +13,8 @@ class Solution:
             
             if state[node]==2:
                 return True
-            
-            state[node]=1
 
+            state[node]=1
             for neigh in graph[node]:
                 if not dfs(neigh):
                     return False
@@ -26,3 +25,5 @@ class Solution:
             if not dfs(i):
                 return False
         return True
+
+        
