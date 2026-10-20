@@ -2,7 +2,7 @@ class Solution:
     def findOrder(self, numCourses: int, prerequisites: list[list[int]]) -> list[int]:
         order=[]
 
-        graph = defaultdict(list)
+        graph=defaultdict(list)
 
         for a,b in prerequisites:
             graph[a].append(b)
@@ -15,7 +15,7 @@ class Solution:
             
             if state[node]==2:
                 return True
-            
+
             state[node]=1
             for neigh in graph[node]:
                 if not dfs(neigh):
@@ -27,5 +27,4 @@ class Solution:
         for i in range(numCourses):
             if not dfs(i):
                 return []
-
         return order
