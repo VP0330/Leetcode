@@ -10,17 +10,21 @@ class Solution:
             for j in range(n):
                 if grid[i][j]==2:
                     q.append((i,j))
-                elif grid[i][j]==1:
+                
+                if grid[i][j]==1:
                     num_fresh+=1
         if num_fresh==0:
             return 0
+
         num_min=-1
+
         while q:
             q_size=len(q)
             num_min+=1
-            for i in range(q_size):
+            for _ in range(q_size):
                 i,j = q.popleft()
-                for r,c in [(i+1,j),(i-1,j),(i,j+1),(i,j-1)]:
+                
+                for r,c in [(i+1,j) , (i-1,j), (i,j+1), (i,j-1)]:
                     if 0<=r<m and 0<=c<n and grid[r][c]==1:
                         grid[r][c]=2
                         num_fresh-=1
@@ -29,3 +33,4 @@ class Solution:
             return num_min
         else:
             return -1
+
