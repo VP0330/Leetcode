@@ -1,7 +1,7 @@
 class Solution:
     def orangesRotting(self, grid: list[list[int]]) -> int:
-        m=len(grid)
-        n=len(grid[0])
+        m=len(grid)#cols
+        n=len(grid[0])#rows
         q=deque()
         num_fresh=0
         for i in range(m):
@@ -17,8 +17,8 @@ class Solution:
             q_size=len(q)
             mins+=1
             for _ in range(q_size):
-                i,j = q.popleft()
-                for r,c in [(i+1,j), (i-1,j), (i,j+1), (i,j-1)]:
+                i,j=q.popleft()
+                for r,c in[(i+1,j),(i-1,j),(i,j+1),(i,j-1)]:
                     if 0<=r<m and 0<=c<n and grid[r][c]==1:
                         grid[r][c]=2
                         num_fresh-=1
@@ -28,4 +28,3 @@ class Solution:
         else:
             return -1
                 
-        
