@@ -1,9 +1,8 @@
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: list[list[int]]) -> list[int]:
         order=[]
-
         graph=defaultdict(list)
-
+        
         for a,b in prerequisites:
             graph[a].append(b)
 
@@ -12,10 +11,8 @@ class Solution:
         def dfs(node):
             if state[node]==1:
                 return False
-            
             if state[node]==2:
                 return True
-
             state[node]=1
             for neigh in graph[node]:
                 if not dfs(neigh):
@@ -23,7 +20,7 @@ class Solution:
             state[node]=2
             order.append(node)
             return True
-
+        
         for i in range(numCourses):
             if not dfs(i):
                 return []
