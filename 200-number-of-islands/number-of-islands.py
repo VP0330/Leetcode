@@ -9,14 +9,14 @@ class Solution:
             else:
                 grid[i][j]='0'
                 dfs(i+1,j)
-                dfs(i-1,j)
                 dfs(i,j+1)
                 dfs(i,j-1)
-
+                dfs(i-1,j)
+        
         num_island=0
         for i in range(m):
             for j in range(n):
-                if grid [i][j]=='1':
+                if grid[i][j]=='1':
                     dfs(i,j)
                     num_island+=1
         return num_island
