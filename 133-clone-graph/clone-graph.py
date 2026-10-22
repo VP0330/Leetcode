@@ -16,6 +16,7 @@ class Solution:
             copy=Node(node.val)
             oldtonew[node]=copy
             for neigh in node.neighbors:
-                copy.neighbors.append(dfs(neigh))
+                    copy.neighbors.append(dfs(neigh))
             return copy
         return dfs(node) if node else None
+            
