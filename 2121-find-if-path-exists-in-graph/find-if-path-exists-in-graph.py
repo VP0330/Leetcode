@@ -1,14 +1,15 @@
 from collections import deque
 class Solution:
     def validPath(self, n: int, edges: list[list[int]], source: int, destination: int) -> bool:
-        if source == destination:
+        if source==destination:
             return True
         
         graph=defaultdict(list)
+
         for u,v in edges:
             graph[u].append(v)
             graph[v].append(u)
-
+        
         seen=set()
         seen.add(source)
         q=deque()
@@ -16,10 +17,10 @@ class Solution:
 
         while q:
             node=q.popleft()
-            if node == destination:
+            if node==destination:
                 return True
-            for neig in graph[node]:
-                if neig not in seen:
-                    seen.add(neig)
-                    q.append(neig)
+            for nei in graph[node]:
+                if nei not in seen:
+                    seen.add(nei)
+                    q.append(nei)
         return False
