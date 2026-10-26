@@ -1,3 +1,6 @@
+import heapq
+from collections import defaultdict
+
 class Solution:
     def networkDelayTime(self, times: list[list[int]], n: int, k: int) -> int:
         graph = defaultdict(list)
