@@ -3,7 +3,7 @@ class Solution:
         stack=[]
         curr=""
         for c in path+"/":
-            if c == "/":
+            if c=="/":
                 if curr=="..":
                     if stack:
                         stack.pop()
@@ -13,4 +13,3 @@ class Solution:
             else:
                 curr+=c
         return "/"+"/".join(stack)
-        
