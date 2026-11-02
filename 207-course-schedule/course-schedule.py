@@ -2,7 +2,7 @@ class Solution:
     def canFinish(self, numCourses: int, prerequisites: list[list[int]]) -> bool:
         graph=defaultdict(list)
         for a,b in prerequisites:
-            graph[b].append(a)
+            graph[a].append(b)
         state=[0]*numCourses
         def dfs(node):
             if state[node]==1:
