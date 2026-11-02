@@ -1,17 +1,16 @@
 class Solution:
     def maxAreaOfIsland(self, grid: list[list[int]]) -> int:
-        m=len(grid)
-        n=len(grid[0])
-
-        def dfs(i,j):
-            if i<0 or i>=m or j<0 or j>=n or grid[i][j]!=1:
+        rows=len(grid)
+        cols=len(grid[0])
+        max_area=0
+        def dfs (i,j):
+            if i<0 or i>=rows or j<0 or j>=cols or grid[i][j]!=1:
                 return 0
             else:
                 grid[i][j]=0
-                return 1 + dfs (i+1,j) +dfs(i-1,j) + dfs(i,j+1) +dfs(i,j-1)
-        max_area=0
-        for i in range(m):
-            for j in range(n):
+                return 1 + dfs(i+1,j) + dfs(i-1,j) + dfs(i,j+1) + dfs(i,j-1)
+        for i in range(rows):
+            for j in range(cols):
                 if grid[i][j]==1:
                     max_area=max(max_area,dfs(i,j))
         return max_area
